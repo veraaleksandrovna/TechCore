@@ -51,9 +51,8 @@ public class LogInPage:BasePage
         return this;
     }
 
-    public LogInPage ButtonClick()
+    public void ButtonClick()
     {
         Button.Click();
-        return this;
     }
 }

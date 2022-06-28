@@ -19,16 +19,21 @@ public class EndToEndTest: BaseTest
 
         var cvBuilderPage = new CvBuilderPage(Driver, false);
         cvBuilderPage.AddCVButtonClick();
-
+        cvBuilderPage.IsPageOpened();
+        
         var newCvPage = new NewCvPage(Driver, false);
+        newCvPage.IsPageOpened();
 
         newCvPage
-            .FirstNameKeys()
             .LastNameKeys()
+            .FirstNameKeys()
             .CurrentPositionKeys()
             .AboutMeKeys()
             .NextButtonClick();
         
+        Driver.Navigate().GoToUrl("https://personal.techcore.io/cvbuilder");
+        var displayes = cvBuilderPage.NewCvCard.Displayed;
+        Assert.IsTrue(displayes);
     }
     
 }
